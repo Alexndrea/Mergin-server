@@ -24,4 +24,4 @@
 umask 0027
 
 # Run the server using gunicorn
-exec gunicorn --config /app/server/config.py mergin:app
+exec gunicorn --config /app/server/config.py --log-config /app/server/gunicorn-logging.conf mergin:app

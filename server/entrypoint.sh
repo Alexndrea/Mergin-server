@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-MerginMaps-Commercial
 
 # make sure all files created by gunicorn (mergin server) have proper permissions
-umask 0027
+#umask 0027
 
 # Settings passed to gunicorn have the following order of precedence
 # (tested using --workers):
@@ -17,4 +17,11 @@ umask 0027
 # We store a base config in config.py and override things as needed
 # using the environment variable GUNICORN_CMD_ARGS.
 
-exec sh -c "$@"
+#exec sh -c "$@"
+#!/bin/bash
+
+# Make sure files created by the server have the right permissions
+umask 0027
+
+# Run the server using gunicorn
+exec gunicorn --config /app/server/config.py mergin:app

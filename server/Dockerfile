@@ -41,5 +41,5 @@ RUN pipenv install --system --deploy --verbose
 
 USER mergin
 
-COPY ./entrypoint.sh .
+COPY server/entrypoint.sh .
 ENTRYPOINT ["/app/entrypoint.sh"]
